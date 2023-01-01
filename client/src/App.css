@@ -1,5 +1,6 @@
 :root {
   --primary-color: #005fff;
+  --primary-color-nav: ;
   --primary-color-alpha: #005fff1a;
 }
 
@@ -375,8 +376,7 @@ body {
 
 .channel-list__sidebar {
   width: 72px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    var(--primary-color);
+  background: #5085ff;
   box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.25);
   /* border-top-left-radius: 16px; */
   /* border-bottom-left-radius: 16px; */
@@ -399,7 +399,7 @@ body {
 .channel-list__list__wrapper {
   display: flex;
   flex-direction: column;
-  background: var(--primary-color);
+  background: #4776E6;
   width: 240px;
 }
 
@@ -939,8 +939,12 @@ body {
 
 .team-channel-list {
   width: 100%;
-  display: flex;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  display: flex-inline;
   flex-direction: column;
+  
 }
 
 .team-channel-list__message {
@@ -982,7 +986,7 @@ body {
   height: auto;
   display: flex;
   align-items: center;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgb(80, 133, 255);
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   font-weight: bold;
@@ -992,7 +996,7 @@ body {
 }
 
 .channel-preview__wrapper:hover {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgb(80, 133, 255);
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   font-weight: bold;

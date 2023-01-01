@@ -2,9 +2,20 @@ import React from "react";
 
 import { AddChannel } from "../assets";
 
-export default function TeamChannelList({ children, error = false, loading, type, isCreating,setIsCreating,setCreateType,setIsEditing  }) {
-  if(error) {
-    return type === "team"?(
+export default function TeamChannelList({
+  setToggleContainer,
+  children,
+  error = false,
+  loading,
+  type,
+  isCreating,
+  setIsCreating,
+  setCreateType,
+  setIsEditing,
+  
+}) {
+  if (error) {
+    return type === "team" ? (
       <div className="team-channel-list">
         <p className="team-channel-list__message">
           Connection error, please wait a moment and try again.
@@ -13,7 +24,7 @@ export default function TeamChannelList({ children, error = false, loading, type
     ) : null;
   }
 
-  if(loading) {
+  if (loading) {
     return (
       <div className="team-channel-list">
         <p className="team-channel-list__message loading">
@@ -24,17 +35,18 @@ export default function TeamChannelList({ children, error = false, loading, type
   }
 
   return (
-    <div className="team-channel-list" style={{background:"#006cff"}}>
+    <div className="team-channel-list" style={{background:"#4776E6"}}>
       <div className="team-channel-list__header">
         <p className="team-channel-list__header__title">
           {type === "team" ? "Channels" : "Direct Message"}
         </p>
         <AddChannel
-            isCreating={isCreating}
-            setIsCreating={setIsCreating}
-            setCreateType={setCreateType}
-            setIsEditing={setIsEditing}
-            type={type === 'team' ? 'team' : 'messaging'}
+          isCreating={isCreating}
+          setIsCreating={setIsCreating}
+          setCreateType={setCreateType}
+          setIsEditing={setIsEditing}
+          type={type === "team" ? "team" : "messaging"}
+          setToggleContainer={setToggleContainer}
         />
       </div>
       {children}

@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar, useChatContext } from "stream-chat-react";
 
-export default function TeamChannelPreview({ channel, type }) {
+export default function TeamChannelPreview({ setActiveChannel,setIsCreating,setIsEditing,setToggleContainer,channel, type }) {
   const { channel: activeChannel, client } = useChatContext();
 
   const ChannelPreview = () => (
@@ -11,9 +11,8 @@ export default function TeamChannelPreview({ channel, type }) {
   );
 
   const DirectPreview = () => {
-    const members = Object.value(channel.state.members).filter(
-      ({ user }) => user.id !== client.userID
-    );
+    const members = Object.values(channel.state.members).filter(({ user }) => user.id !== client.userID);
+    console.log(members[0])
 
     return (
       <div className="channel-preview__item single">
@@ -22,22 +21,28 @@ export default function TeamChannelPreview({ channel, type }) {
           name={members[0]?.user?.fullname}
           size={24}
         />
-        <p>{members[0]?.user?.fullname}</p>
+        <p>{members[0]?.user?.fullname || members[0]?.user?.id}</p>
       </div>
     );
   };
 
   return (
-  <div className={
-    channel?.id === activeChannel?.id
-      ? 'channel-preview__wrapper__selected'
-      : 'channel-preview__wrapper'
-  }
-  onClick={()=> {
-    console.log(channel)
-  }}
-  >
-    {type === 'team' ? <ChannelPreview /> : <DirectPreview />}
-  </div>
-  )
+    <div
+      className={
+        channel?.id === activeChannel?.id
+          ? "channel-preview__wrapper__selected"
+          : "channel-preview__wrapper"
+      }
+      onClick={() => {
+        setIsCreating(false)
+        setIsEditing(false)
+        setActiveChannel(channel)
+        if(setToggleContainer){
+          setToggleContainer((prevState)=>!prevState)
+        }
+      }}
+    >
+      {type === "team" ? <ChannelPreview /> : <DirectPreview />}
+    </div>
+  );
 }
