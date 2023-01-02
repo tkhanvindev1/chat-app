@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Cookies from "universal-cookie";
 import axios from "axios";
 
-import signinImage from "../assets/signup.jpg";
+import signinImage from "../assets/signup.gif";
 
 const cookies = new Cookies();
 
@@ -33,7 +33,10 @@ export default function Auth() {
 
     const { username, password, phoneNumber, avatarURL } = form;
 
-    const URL = "http://localhost:5040/auth";
+    const URL =
+      process.env.NODE_ENV === "production"
+        ? "/auth"
+        : "http://localhost:5040/auth";
 
     const {
       data: { token, userId, hashedPassword, fullname },
@@ -55,8 +58,9 @@ export default function Auth() {
       cookies.set("avatarURL", avatarURL);
       cookies.set("hashedPassword", hashedPassword);
     }
-
+  
     window.location.reload();
+   
   };
 
   return (

@@ -24,7 +24,6 @@ export default function ChannelInner({ setIsEditing }) {
       div[i].style.background = '#5085ff';
       div[i].style.color = 'white'
       div[i].style.borderRadius = '2rem'
-    console.log(div)
     }
   })
 

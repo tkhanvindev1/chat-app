@@ -28,9 +28,10 @@ export default function CreateChannel({ createType, setIsCreating }) {
   const [selectedUsers, setSelectedUsers] = useState([client.userID || ""]);
   const [channelName, setChannelName] = useState("");
 
+
   const createChannel = async (e) => {
     e.preventDefault();
-
+  
     try {
       const newChannel = await client.channel(createType, channelName, {
         name: channelName,

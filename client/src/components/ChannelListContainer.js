@@ -8,11 +8,15 @@ import LogoutIcon from '../assets/logout.png'
 
 const cookies = new Cookies();
 
-const SideBar = ({ logout }) => (
+const SideBar = ({ logout, userAvatar }) => (
     <div className="channel-list__sidebar">
         <div className="channel-list__sidebar__icon1">
             <div className="icon1__inner">
-                <img src={Logo} alt="Hospital" width="30" />
+                {userAvatar?
+                <img className='user-avatar__img' src={userAvatar} alt="Avatar" width="30"/>
+                :
+                <img src={Logo} alt="Avatar" width="30"/>
+                }
             </div>
         </div>
         <div className="channel-list__sidebar__icon2">
@@ -23,9 +27,9 @@ const SideBar = ({ logout }) => (
     </div>
 );
 
-const CompanyHeader = () => (
+const CompanyHeader = ({username}) => (
     <div className="channel-list__header">
-        <p className="channel-list__header__text">GoChatty</p>
+        <p className="channel-list__header__text">#{username}</p>
     </div>
 )
 
@@ -39,6 +43,7 @@ const customChannelMessagingFilter = (channels) => {
 
 const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEditing, setToggleContainer }) => {
     const { client } = useChatContext();
+   
 
     const logout = () => {
         cookies.remove("token");
@@ -53,12 +58,15 @@ const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEdi
     }
 
     const filters = { members: { $in: [client.userID] } };
+    const userAvatar = client.user.image
+    const username = client.user.name
+    
 
     return (
         <>
-            <SideBar logout={logout} />
+            <SideBar logout={logout} userAvatar={userAvatar} />
             <div className="channel-list__list__wrapper">
-                <CompanyHeader />
+                <CompanyHeader username={username}/>
                 <ChannelSearch setToggleContainer={setToggleContainer} />
                 <ChannelList 
                     filters={filters}
