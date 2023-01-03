@@ -4,7 +4,7 @@ import Cookies from 'universal-cookie';
 
 import { ChannelSearch, TeamChannelList, TeamChannelPreview } from './';
 import Logo from '../assets/Logo.png'
-import LogoutIcon from '../assets/logout.png'
+import LogoutIcon from '../assets/logout.svg'
 
 const cookies = new Cookies();
 
@@ -131,7 +131,7 @@ export default function  ChannelListContainer  ({ setCreateType, setIsCreating, 
     for (let i = 0; i < div.length; i++) {
       div[i].style.flex = "none";
       div[i].style.height = "auto";
-      div[i].style.background= " #292a2b";
+  
     }
   }, []);
 

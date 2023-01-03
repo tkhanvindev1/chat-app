@@ -34,7 +34,7 @@ export default function Auth() {
     const { username, password, phoneNumber, avatarURL } = form;
 
     const URL =
-      process.env.NODE_ENV === "production"
+      process.env.NODE_ENV === 'production'
         ? "/auth"
         : "http://localhost:5040/auth";
 

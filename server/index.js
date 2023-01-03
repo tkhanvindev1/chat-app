@@ -4,7 +4,7 @@ const cors = require('cors');
 const authRoutes = require("./routes/auth.js")
 
 const app = express();
-const PORT = process.env.PORT || 5040;
+
 
 require('dotenv').config();
 
@@ -17,5 +17,6 @@ app.get('/', (req,res)=> {
 })
 
 app.use('/auth', authRoutes);
+const PORT = process.env.PORT || 5040;
 
 app.listen(PORT, () => console.log(`server running on port ${PORT}`))

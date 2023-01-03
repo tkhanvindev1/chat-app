@@ -35,21 +35,22 @@ export default function TeamChannelList({
   }
 
   return (
-    <div className="team-channel-list" style={{background:"#4776E6"}}>
+    <div className="team-channel-list">
       <div className="team-channel-list__header">
-        <p className="team-channel-list__header__title">
+        <p className="team-channel-list__header__title" >
           {type === "team" ? "Channels" : "Direct Message"}
         </p>
-        <AddChannel
+        <AddChannel 
           isCreating={isCreating}
           setIsCreating={setIsCreating}
           setCreateType={setCreateType}
           setIsEditing={setIsEditing}
           type={type === "team" ? "team" : "messaging"}
           setToggleContainer={setToggleContainer}
+          
         />
       </div>
-      {children}
+      {children}  
     </div>
   );
 }

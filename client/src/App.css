@@ -206,10 +206,11 @@ body {
 .str-chat-channel-list {
   height: fit-content;
   margin-bottom: 8px;
+  height: auto;
 }
-
 .str-chat-channel {
   height: 100%;
+  
 }
 
 .str-chat__load-more-button {
@@ -308,6 +309,15 @@ body {
   width: 100%;
 }
 
+.str-chat__list {
+  background-color: #f1f2f4;
+}
+
+ .str-chat__message-simple--me .str-chat__message-text-inner{
+  background-color: #005fff;
+  background: #05245a;
+}
+
 .str-chat__thread {
   z-index: 1;
 }
@@ -322,6 +332,9 @@ body {
 
 .str-chat__list .str-chat__reverse-infinite-scroll {
   padding-top: 0px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  
 }
 
 .str-chat__thread-list .channel-empty__container {
@@ -383,10 +396,13 @@ body {
 
 .channel-list__sidebar {
   width: 72px;
-  background: #5085ff;
+  background: #2a2c31;
   box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.25);
   /* border-top-left-radius: 16px; */
   /* border-bottom-left-radius: 16px; */
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .channel-list__sidebar__icon1 {
@@ -406,7 +422,7 @@ body {
 .channel-list__list__wrapper {
   display: flex;
   flex-direction: column;
-  background: #4776E6;
+  background: #252526;
   width: 240px;
 }
 
@@ -944,6 +960,7 @@ body {
   color: #858688;
 }
 
+
 .team-channel-list {
   width: 100%;
   height: auto;
@@ -951,8 +968,16 @@ body {
   padding: 0;
   display: flex-inline;
   flex-direction: column;
+  background: #252526;
   
 }
+.str-chat__channel-list-empty-v1{
+  color: white;
+  font-size: small;
+  text-align: center;
+ 
+}
+
 
 .team-channel-list__message {
   color: #ffffff;
@@ -968,6 +993,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #252526;
 }
 
 .team-channel-list__header svg {
@@ -993,7 +1019,7 @@ body {
   height: auto;
   display: flex;
   align-items: center;
-  background: rgb(80, 133, 255);
+  background: #2a2c31;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   font-weight: bold;
@@ -1003,7 +1029,7 @@ body {
 }
 
 .channel-preview__wrapper:hover {
-  background: rgb(80, 133, 255);
+  background: #2a2c31;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   font-weight: bold;
@@ -1022,6 +1048,7 @@ body {
   width: 100%;
   text-overflow: ellipsis;
   word-break: break-all;
+ 
 }
 
 .channel-preview__item.multi {
